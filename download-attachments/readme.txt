@@ -4,8 +4,8 @@ Donate link: http://www.dfactory.co/
 Tags: attachment, attachments, file, files, download, downloads, upload, doc, document, documents, monitor, manager
 Requires at least: 6.0
 Requires PHP: 7.0.0
-Tested up to: 6.8.3
-Stable tag: 1.3.2
+Tested up to: 6.9.4
+Stable tag: 1.4.0
 License: MIT License
 License URI: http://opensource.org/licenses/MIT
 
@@ -64,6 +64,12 @@ A. Chances are, someone else has asked it. Check out the support forum at: http:
 3. screenshot-3.png
 
 == Changelog ==
+
+= 1.4.0 =
+* New: Modernize the admin settings UI and refined settings screen structure.
+* Tweak: Upgrade bundled DataTables assets to 2.3.7 with compatibility fixes.
+* Tweak: Improve inline documentation in JavaScript source files.
+* Tweak: Improved internal build workflow.
 
 = 1.3.2 =
 * Security: Serve downloads only for files attached and not marked as excluded.
@@ -225,5 +231,5 @@ Initial release
 
 == Upgrade Notice ==
 
-= 1.3.2 =
-* Security: Restricts downloads to files explicitly attached and honors exclusion flags.
+= 1.4.0 =
+* Includes the refreshed admin settings experience, updated build tooling, and the bundled DataTables 2.3.7 upgrade.

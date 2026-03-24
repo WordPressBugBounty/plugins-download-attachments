@@ -1,0 +1,2033 @@
+@charset "UTF-8";
+/*!
+ * Pico CSS ✨ v2.1.1 (https://picocss.com)
+ * Copyright 2019-2025 - Licensed under MIT
+ */
+/**
+ * Styles
+ */
+:root,
+:host {
+  --da-font-family-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --da-font-family-sans-serif: system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, Helvetica, Arial, "Helvetica Neue", sans-serif, var(--da-font-family-emoji);
+  --da-font-family-monospace: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace, var(--da-font-family-emoji);
+  --da-font-family: var(--da-font-family-sans-serif);
+  --da-line-height: 1.5;
+  --da-font-weight: 400;
+  --da-font-size: 100%;
+  --da-text-underline-offset: 0.1rem;
+  --da-border-radius: 0.25rem;
+  --da-border-width: 0.0625rem;
+  --da-outline-width: 0.125rem;
+  --da-transition: 0.2s ease-in-out;
+  --da-spacing: 1rem;
+  --da-form-element-spacing-vertical: 0.75rem;
+  --da-form-element-spacing-horizontal: 1rem;
+  --da-group-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  --da-group-box-shadow-focus-with-button: 0 0 0 var(--da-outline-width) var(--da-primary-focus);
+  --da-group-box-shadow-focus-with-input: 0 0 0 0.0625rem var(--da-form-element-border-color);
+  --da-icon-checkbox: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(255, 255, 255)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+  --da-icon-minus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(255, 255, 255)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='5' y1='12' x2='19' y2='12'%3E%3C/line%3E%3C/svg%3E");
+  --da-icon-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(136, 145, 164)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  --da-icon-date: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(136, 145, 164)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Cline x1='16' y1='2' x2='16' y2='6'%3E%3C/line%3E%3Cline x1='8' y1='2' x2='8' y2='6'%3E%3C/line%3E%3Cline x1='3' y1='10' x2='21' y2='10'%3E%3C/line%3E%3C/svg%3E");
+  --da-icon-time: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(136, 145, 164)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cpolyline points='12 6 12 12 16 14'%3E%3C/polyline%3E%3C/svg%3E");
+  --da-icon-search: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(136, 145, 164)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
+  --da-icon-loading: url("data:image/svg+xml,%3Csvg fill='none' height='24' width='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' %3E%3Cstyle%3E g %7B animation: rotate 2s linear infinite; transform-origin: center center; %7D circle %7B stroke-dasharray: 75,100; stroke-dashoffset: -5; animation: dash 1.5s ease-in-out infinite; stroke-linecap: round; %7D @keyframes rotate %7B 0%25 %7B transform: rotate(0deg); %7D 100%25 %7B transform: rotate(360deg); %7D %7D @keyframes dash %7B 0%25 %7B stroke-dasharray: 1,100; stroke-dashoffset: 0; %7D 50%25 %7B stroke-dasharray: 44.5,100; stroke-dashoffset: -17.5; %7D 100%25 %7B stroke-dasharray: 44.5,100; stroke-dashoffset: -62; %7D %7D %3C/style%3E%3Cg%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='rgb(136, 145, 164)' stroke-width='4' /%3E%3C/g%3E%3C/svg%3E");
+}
+@media (min-width: 576px) {
+  :root,
+  :host {
+    --da-font-size: 106.25%;
+  }
+}
+@media (min-width: 768px) {
+  :root,
+  :host {
+    --da-font-size: 112.5%;
+  }
+}
+@media (min-width: 1024px) {
+  :root,
+  :host {
+    --da-font-size: 118.75%;
+  }
+}
+@media (min-width: 1280px) {
+  :root,
+  :host {
+    --da-font-size: 125%;
+  }
+}
+@media (min-width: 1536px) {
+  :root,
+  :host {
+    --da-font-size: 131.25%;
+  }
+}
+
+a {
+  --da-text-decoration: underline;
+}
+a.secondary, a.contrast {
+  --da-text-decoration: underline;
+}
+
+pre,
+code,
+kbd,
+samp {
+  --da-font-family: var(--da-font-family-monospace);
+}
+
+kbd {
+  --da-font-weight: bolder;
+}
+
+input:not([type=submit],
+[type=button],
+[type=reset],
+[type=checkbox],
+[type=radio],
+[type=file]),
+:where(select, textarea) {
+  --da-outline-width: 0.0625rem;
+}
+
+[type=search] {
+  --da-border-radius: 5rem;
+}
+
+[type=checkbox],
+[type=radio] {
+  --da-border-width: 0.125rem;
+}
+
+[type=checkbox][role=switch] {
+  --da-border-width: 0.1875rem;
+}
+
+[role=search] {
+  --da-border-radius: 5rem;
+}
+
+[role=search]:has(button.secondary:focus,
+[type=submit].secondary:focus,
+[type=button].secondary:focus,
+[role=button].secondary:focus),
+[role=group]:has(button.secondary:focus,
+[type=submit].secondary:focus,
+[type=button].secondary:focus,
+[role=button].secondary:focus) {
+  --da-group-box-shadow-focus-with-button: 0 0 0 var(--da-outline-width) var(--da-secondary-focus);
+}
+[role=search]:has(button.contrast:focus,
+[type=submit].contrast:focus,
+[type=button].contrast:focus,
+[role=button].contrast:focus),
+[role=group]:has(button.contrast:focus,
+[type=submit].contrast:focus,
+[type=button].contrast:focus,
+[role=button].contrast:focus) {
+  --da-group-box-shadow-focus-with-button: 0 0 0 var(--da-outline-width) var(--da-contrast-focus);
+}
+[role=search] button,
+[role=search] [type=submit],
+[role=search] [type=button],
+[role=search] [role=button],
+[role=group] button,
+[role=group] [type=submit],
+[role=group] [type=button],
+[role=group] [role=button] {
+  --da-form-element-spacing-horizontal: 2rem;
+}
+
+.da-settings-form [aria-busy=true]:not(input, select, textarea):is(button, [type=submit], [type=button], [type=reset], [role=button]):not(.outline)::before {
+  filter: brightness(0) invert(1);
+}
+
+/**
+ * Color schemes
+ */
+[data-theme=light],
+:root:not([data-theme=dark]),
+:host(:not([data-theme=dark])) {
+  color-scheme: light;
+  --da-background-color: #fff;
+  --da-color: #373c44;
+  --da-text-selection-color: rgba(2, 154, 232, 0.25);
+  --da-muted-color: #646b79;
+  --da-muted-border-color: rgb(231, 234, 239.5);
+  --da-primary: #0172ad;
+  --da-primary-background: #0172ad;
+  --da-primary-border: var(--da-primary-background);
+  --da-primary-underline: rgba(1, 114, 173, 0.5);
+  --da-primary-hover: #015887;
+  --da-primary-hover-background: #02659a;
+  --da-primary-hover-border: var(--da-primary-hover-background);
+  --da-primary-hover-underline: var(--da-primary-hover);
+  --da-primary-focus: rgba(2, 154, 232, 0.5);
+  --da-primary-inverse: #fff;
+  --da-secondary: #5d6b89;
+  --da-secondary-background: #525f7a;
+  --da-secondary-border: var(--da-secondary-background);
+  --da-secondary-underline: rgba(93, 107, 137, 0.5);
+  --da-secondary-hover: #48536b;
+  --da-secondary-hover-background: #48536b;
+  --da-secondary-hover-border: var(--da-secondary-hover-background);
+  --da-secondary-hover-underline: var(--da-secondary-hover);
+  --da-secondary-focus: rgba(93, 107, 137, 0.25);
+  --da-secondary-inverse: #fff;
+  --da-contrast: #181c25;
+  --da-contrast-background: #181c25;
+  --da-contrast-border: var(--da-contrast-background);
+  --da-contrast-underline: rgba(24, 28, 37, 0.5);
+  --da-contrast-hover: #000;
+  --da-contrast-hover-background: #000;
+  --da-contrast-hover-border: var(--da-contrast-hover-background);
+  --da-contrast-hover-underline: var(--da-secondary-hover);
+  --da-contrast-focus: rgba(93, 107, 137, 0.25);
+  --da-contrast-inverse: #fff;
+  --da-box-shadow: 0.0145rem 0.029rem 0.174rem rgba(129, 145, 181, 0.01698), 0.0335rem 0.067rem 0.402rem rgba(129, 145, 181, 0.024), 0.0625rem 0.125rem 0.75rem rgba(129, 145, 181, 0.03), 0.1125rem 0.225rem 1.35rem rgba(129, 145, 181, 0.036), 0.2085rem 0.417rem 2.502rem rgba(129, 145, 181, 0.04302), 0.5rem 1rem 6rem rgba(129, 145, 181, 0.06), 0 0 0 0.0625rem rgba(129, 145, 181, 0.015);
+  --da-button-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  --da-button-hover-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  --da-code-background-color: rgb(243, 244.5, 246.75);
+  --da-code-color: #646b79;
+  --da-code-kbd-background-color: var(--da-color);
+  --da-code-kbd-color: var(--da-background-color);
+  --da-form-element-background-color: rgb(251, 251.5, 252.25);
+  --da-form-element-selected-background-color: #dfe3eb;
+  --da-form-element-border-color: #cfd5e2;
+  --da-form-element-color: #23262c;
+  --da-form-element-placeholder-color: var(--da-muted-color);
+  --da-form-element-active-background-color: #fff;
+  --da-form-element-active-border-color: var(--da-primary-border);
+  --da-form-element-focus-color: var(--da-primary-border);
+  --da-form-element-disabled-opacity: 0.5;
+  --da-form-element-invalid-border-color: rgb(183.5, 105.5, 106.5);
+  --da-form-element-invalid-active-border-color: rgb(200.25, 79.25, 72.25);
+  --da-form-element-invalid-focus-color: var(--da-form-element-invalid-active-border-color);
+  --da-form-element-valid-border-color: rgb(76, 154.5, 137.5);
+  --da-form-element-valid-active-border-color: rgb(39, 152.75, 118.75);
+  --da-form-element-valid-focus-color: var(--da-form-element-valid-active-border-color);
+  --da-switch-background-color: #bfc7d9;
+  --da-switch-checked-background-color: var(--da-primary-background);
+  --da-switch-color: #fff;
+  --da-switch-thumb-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  --da-range-border-color: #dfe3eb;
+  --da-range-active-border-color: #bfc7d9;
+  --da-range-thumb-border-color: var(--da-background-color);
+  --da-range-thumb-color: var(--da-secondary-background);
+  --da-range-thumb-active-color: var(--da-primary-background);
+  --da-loading-spinner-opacity: 0.5;
+  --da-icon-valid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(76, 154.5, 137.5)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+  --da-icon-invalid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(200.25, 79.25, 72.25)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cline x1='12' y1='8' x2='12' y2='12'%3E%3C/line%3E%3Cline x1='12' y1='16' x2='12.01' y2='16'%3E%3C/line%3E%3C/svg%3E");
+}
+[data-theme=light] input:is([type=submit],
+[type=button],
+[type=reset],
+[type=checkbox],
+[type=radio],
+[type=file]),
+:root:not([data-theme=dark]) input:is([type=submit],
+[type=button],
+[type=reset],
+[type=checkbox],
+[type=radio],
+[type=file]),
+:host(:not([data-theme=dark])) input:is([type=submit],
+[type=button],
+[type=reset],
+[type=checkbox],
+[type=radio],
+[type=file]) {
+  --da-form-element-focus-color: var(--da-primary-focus);
+}
+
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]),
+  :host(:not([data-theme])) {
+    color-scheme: dark;
+    --da-background-color: rgb(19, 22.5, 30.5);
+    --da-color: #c2c7d0;
+    --da-text-selection-color: rgba(1, 170, 255, 0.1875);
+    --da-muted-color: #7b8495;
+    --da-muted-border-color: #202632;
+    --da-primary: #01aaff;
+    --da-primary-background: #0172ad;
+    --da-primary-border: var(--da-primary-background);
+    --da-primary-underline: rgba(1, 170, 255, 0.5);
+    --da-primary-hover: #79c0ff;
+    --da-primary-hover-background: #017fc0;
+    --da-primary-hover-border: var(--da-primary-hover-background);
+    --da-primary-hover-underline: var(--da-primary-hover);
+    --da-primary-focus: rgba(1, 170, 255, 0.375);
+    --da-primary-inverse: #fff;
+    --da-secondary: #969eaf;
+    --da-secondary-background: #525f7a;
+    --da-secondary-border: var(--da-secondary-background);
+    --da-secondary-underline: rgba(150, 158, 175, 0.5);
+    --da-secondary-hover: #b3b9c5;
+    --da-secondary-hover-background: #5d6b89;
+    --da-secondary-hover-border: var(--da-secondary-hover-background);
+    --da-secondary-hover-underline: var(--da-secondary-hover);
+    --da-secondary-focus: rgba(144, 158, 190, 0.25);
+    --da-secondary-inverse: #fff;
+    --da-contrast: #dfe3eb;
+    --da-contrast-background: #eff1f4;
+    --da-contrast-border: var(--da-contrast-background);
+    --da-contrast-underline: rgba(223, 227, 235, 0.5);
+    --da-contrast-hover: #fff;
+    --da-contrast-hover-background: #fff;
+    --da-contrast-hover-border: var(--da-contrast-hover-background);
+    --da-contrast-hover-underline: var(--da-contrast-hover);
+    --da-contrast-focus: rgba(207, 213, 226, 0.25);
+    --da-contrast-inverse: #000;
+    --da-box-shadow: 0.0145rem 0.029rem 0.174rem rgba(7, 8.5, 12, 0.01698), 0.0335rem 0.067rem 0.402rem rgba(7, 8.5, 12, 0.024), 0.0625rem 0.125rem 0.75rem rgba(7, 8.5, 12, 0.03), 0.1125rem 0.225rem 1.35rem rgba(7, 8.5, 12, 0.036), 0.2085rem 0.417rem 2.502rem rgba(7, 8.5, 12, 0.04302), 0.5rem 1rem 6rem rgba(7, 8.5, 12, 0.06), 0 0 0 0.0625rem rgba(7, 8.5, 12, 0.015);
+    --da-button-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    --da-button-hover-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    --da-code-background-color: rgb(26, 30.5, 40.25);
+    --da-code-color: #8891a4;
+    --da-code-kbd-background-color: var(--da-color);
+    --da-code-kbd-color: var(--da-background-color);
+    --da-form-element-background-color: rgb(28, 33, 43.5);
+    --da-form-element-selected-background-color: #2a3140;
+    --da-form-element-border-color: #2a3140;
+    --da-form-element-color: #e0e3e7;
+    --da-form-element-placeholder-color: #8891a4;
+    --da-form-element-active-background-color: rgb(26, 30.5, 40.25);
+    --da-form-element-active-border-color: var(--da-primary-border);
+    --da-form-element-focus-color: var(--da-primary-border);
+    --da-form-element-disabled-opacity: 0.5;
+    --da-form-element-invalid-border-color: rgb(149.5, 74, 80);
+    --da-form-element-invalid-active-border-color: rgb(183.25, 63.5, 59);
+    --da-form-element-invalid-focus-color: var(--da-form-element-invalid-active-border-color);
+    --da-form-element-valid-border-color: #2a7b6f;
+    --da-form-element-valid-active-border-color: rgb(22, 137, 105.5);
+    --da-form-element-valid-focus-color: var(--da-form-element-valid-active-border-color);
+    --da-switch-background-color: #333c4e;
+    --da-switch-checked-background-color: var(--da-primary-background);
+    --da-switch-color: #fff;
+    --da-switch-thumb-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    --da-range-border-color: #202632;
+    --da-range-active-border-color: #2a3140;
+    --da-range-thumb-border-color: var(--da-background-color);
+    --da-range-thumb-color: var(--da-secondary-background);
+    --da-range-thumb-active-color: var(--da-primary-background);
+    --da-loading-spinner-opacity: 0.5;
+    --da-icon-valid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(42, 123, 111)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    --da-icon-invalid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(149.5, 74, 80)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cline x1='12' y1='8' x2='12' y2='12'%3E%3C/line%3E%3Cline x1='12' y1='16' x2='12.01' y2='16'%3E%3C/line%3E%3C/svg%3E");
+  }
+  :root:not([data-theme]) input:is([type=submit],
+  [type=button],
+  [type=reset],
+  [type=checkbox],
+  [type=radio],
+  [type=file]),
+  :host(:not([data-theme])) input:is([type=submit],
+  [type=button],
+  [type=reset],
+  [type=checkbox],
+  [type=radio],
+  [type=file]) {
+    --da-form-element-focus-color: var(--da-primary-focus);
+  }
+  :root:not([data-theme]) .da-settings-form [aria-busy=true]:not(input, select, textarea).contrast:is(button,
+  [type=submit],
+  [type=button],
+  [type=reset],
+  [role=button]):not(.outline)::before,
+  :host(:not([data-theme])) .da-settings-form [aria-busy=true]:not(input, select, textarea).contrast:is(button,
+  [type=submit],
+  [type=button],
+  [type=reset],
+  [role=button]):not(.outline)::before {
+    filter: brightness(0);
+  }
+}
+[data-theme=dark] {
+  color-scheme: dark;
+  --da-background-color: rgb(19, 22.5, 30.5);
+  --da-color: #c2c7d0;
+  --da-text-selection-color: rgba(1, 170, 255, 0.1875);
+  --da-muted-color: #7b8495;
+  --da-muted-border-color: #202632;
+  --da-primary: #01aaff;
+  --da-primary-background: #0172ad;
+  --da-primary-border: var(--da-primary-background);
+  --da-primary-underline: rgba(1, 170, 255, 0.5);
+  --da-primary-hover: #79c0ff;
+  --da-primary-hover-background: #017fc0;
+  --da-primary-hover-border: var(--da-primary-hover-background);
+  --da-primary-hover-underline: var(--da-primary-hover);
+  --da-primary-focus: rgba(1, 170, 255, 0.375);
+  --da-primary-inverse: #fff;
+  --da-secondary: #969eaf;
+  --da-secondary-background: #525f7a;
+  --da-secondary-border: var(--da-secondary-background);
+  --da-secondary-underline: rgba(150, 158, 175, 0.5);
+  --da-secondary-hover: #b3b9c5;
+  --da-secondary-hover-background: #5d6b89;
+  --da-secondary-hover-border: var(--da-secondary-hover-background);
+  --da-secondary-hover-underline: var(--da-secondary-hover);
+  --da-secondary-focus: rgba(144, 158, 190, 0.25);
+  --da-secondary-inverse: #fff;
+  --da-contrast: #dfe3eb;
+  --da-contrast-background: #eff1f4;
+  --da-contrast-border: var(--da-contrast-background);
+  --da-contrast-underline: rgba(223, 227, 235, 0.5);
+  --da-contrast-hover: #fff;
+  --da-contrast-hover-background: #fff;
+  --da-contrast-hover-border: var(--da-contrast-hover-background);
+  --da-contrast-hover-underline: var(--da-contrast-hover);
+  --da-contrast-focus: rgba(207, 213, 226, 0.25);
+  --da-contrast-inverse: #000;
+  --da-box-shadow: 0.0145rem 0.029rem 0.174rem rgba(7, 8.5, 12, 0.01698), 0.0335rem 0.067rem 0.402rem rgba(7, 8.5, 12, 0.024), 0.0625rem 0.125rem 0.75rem rgba(7, 8.5, 12, 0.03), 0.1125rem 0.225rem 1.35rem rgba(7, 8.5, 12, 0.036), 0.2085rem 0.417rem 2.502rem rgba(7, 8.5, 12, 0.04302), 0.5rem 1rem 6rem rgba(7, 8.5, 12, 0.06), 0 0 0 0.0625rem rgba(7, 8.5, 12, 0.015);
+  --da-button-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  --da-button-hover-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  --da-code-background-color: rgb(26, 30.5, 40.25);
+  --da-code-color: #8891a4;
+  --da-code-kbd-background-color: var(--da-color);
+  --da-code-kbd-color: var(--da-background-color);
+  --da-form-element-background-color: rgb(28, 33, 43.5);
+  --da-form-element-selected-background-color: #2a3140;
+  --da-form-element-border-color: #2a3140;
+  --da-form-element-color: #e0e3e7;
+  --da-form-element-placeholder-color: #8891a4;
+  --da-form-element-active-background-color: rgb(26, 30.5, 40.25);
+  --da-form-element-active-border-color: var(--da-primary-border);
+  --da-form-element-focus-color: var(--da-primary-border);
+  --da-form-element-disabled-opacity: 0.5;
+  --da-form-element-invalid-border-color: rgb(149.5, 74, 80);
+  --da-form-element-invalid-active-border-color: rgb(183.25, 63.5, 59);
+  --da-form-element-invalid-focus-color: var(--da-form-element-invalid-active-border-color);
+  --da-form-element-valid-border-color: #2a7b6f;
+  --da-form-element-valid-active-border-color: rgb(22, 137, 105.5);
+  --da-form-element-valid-focus-color: var(--da-form-element-valid-active-border-color);
+  --da-switch-background-color: #333c4e;
+  --da-switch-checked-background-color: var(--da-primary-background);
+  --da-switch-color: #fff;
+  --da-switch-thumb-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  --da-range-border-color: #202632;
+  --da-range-active-border-color: #2a3140;
+  --da-range-thumb-border-color: var(--da-background-color);
+  --da-range-thumb-color: var(--da-secondary-background);
+  --da-range-thumb-active-color: var(--da-primary-background);
+  --da-loading-spinner-opacity: 0.5;
+  --da-icon-valid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(42, 123, 111)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+  --da-icon-invalid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(149.5, 74, 80)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cline x1='12' y1='8' x2='12' y2='12'%3E%3C/line%3E%3Cline x1='12' y1='16' x2='12.01' y2='16'%3E%3C/line%3E%3C/svg%3E");
+}
+[data-theme=dark] input:is([type=submit],
+[type=button],
+[type=reset],
+[type=checkbox],
+[type=radio],
+[type=file]) {
+  --da-form-element-focus-color: var(--da-primary-focus);
+}
+[data-theme=dark] .da-settings-form [aria-busy=true]:not(input, select, textarea).contrast:is(button,
+[type=submit],
+[type=button],
+[type=reset],
+[role=button]):not(.outline)::before {
+  filter: brightness(0);
+}
+
+.da-settings-form progress,
+.da-settings-form [type=checkbox],
+.da-settings-form [type=radio],
+.da-settings-form [type=range] {
+  accent-color: var(--da-primary);
+}
+
+/**
+ * Link
+ */
+.da-settings-form :where(a:not([role=button])),
+.da-settings-form [role=link] {
+  --da-color: var(--da-primary);
+  --da-background-color: transparent;
+  --da-underline: var(--da-primary-underline);
+  outline: none;
+  background-color: var(--da-background-color);
+  color: var(--da-color);
+  text-decoration: var(--da-text-decoration);
+  text-decoration-color: var(--da-underline);
+  text-underline-offset: 0.125em;
+  transition: background-color var(--da-transition), color var(--da-transition), text-decoration var(--da-transition), box-shadow var(--da-transition);
+}
+.da-settings-form :where(a:not([role=button])):is([aria-current]:not([aria-current=false]), :hover, :active, :focus),
+.da-settings-form [role=link]:is([aria-current]:not([aria-current=false]), :hover, :active, :focus) {
+  --da-color: var(--da-primary-hover);
+  --da-underline: var(--da-primary-hover-underline);
+  --da-text-decoration: underline;
+}
+.da-settings-form :where(a:not([role=button])):focus-visible,
+.da-settings-form [role=link]:focus-visible {
+  box-shadow: 0 0 0 var(--da-outline-width) var(--da-primary-focus);
+}
+.da-settings-form :where(a:not([role=button])).secondary,
+.da-settings-form [role=link].secondary {
+  --da-color: var(--da-secondary);
+  --da-underline: var(--da-secondary-underline);
+}
+.da-settings-form :where(a:not([role=button])).secondary:is([aria-current]:not([aria-current=false]), :hover, :active, :focus),
+.da-settings-form [role=link].secondary:is([aria-current]:not([aria-current=false]), :hover, :active, :focus) {
+  --da-color: var(--da-secondary-hover);
+  --da-underline: var(--da-secondary-hover-underline);
+}
+.da-settings-form :where(a:not([role=button])).contrast,
+.da-settings-form [role=link].contrast {
+  --da-color: var(--da-contrast);
+  --da-underline: var(--da-contrast-underline);
+}
+.da-settings-form :where(a:not([role=button])).contrast:is([aria-current]:not([aria-current=false]), :hover, :active, :focus),
+.da-settings-form [role=link].contrast:is([aria-current]:not([aria-current=false]), :hover, :active, :focus) {
+  --da-color: var(--da-contrast-hover);
+  --da-underline: var(--da-contrast-hover-underline);
+}
+
+.da-settings-form a[role=button] {
+  display: inline-block;
+}
+
+/**
+ * Button
+ */
+.da-settings-form button {
+  margin: 0;
+  overflow: visible;
+  font-family: inherit;
+  text-transform: none;
+}
+
+.da-settings-form button,
+.da-settings-form [type=submit],
+.da-settings-form [type=reset],
+.da-settings-form [type=button] {
+  -webkit-appearance: button;
+}
+
+.da-settings-form button,
+.da-settings-form [type=submit],
+.da-settings-form [type=reset],
+.da-settings-form [type=button],
+.da-settings-form [type=file]::file-selector-button,
+.da-settings-form [role=button] {
+  --da-background-color: var(--da-primary-background);
+  --da-border-color: var(--da-primary-border);
+  --da-color: var(--da-primary-inverse);
+  --da-box-shadow: var(--da-button-box-shadow, 0 0 0 rgba(0, 0, 0, 0));
+  padding: var(--da-form-element-spacing-vertical) var(--da-form-element-spacing-horizontal);
+  border: var(--da-border-width) solid var(--da-border-color);
+  border-radius: var(--da-border-radius);
+  outline: none;
+  background-color: var(--da-background-color);
+  box-shadow: var(--da-box-shadow);
+  color: var(--da-color);
+  font-weight: var(--da-font-weight);
+  font-size: 1rem;
+  line-height: var(--da-line-height);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--da-transition), border-color var(--da-transition), color var(--da-transition), box-shadow var(--da-transition);
+}
+.da-settings-form button:is([aria-current]:not([aria-current=false])), .da-settings-form button:is(:hover, :active, :focus),
+.da-settings-form [type=submit]:is([aria-current]:not([aria-current=false])),
+.da-settings-form [type=submit]:is(:hover, :active, :focus),
+.da-settings-form [type=reset]:is([aria-current]:not([aria-current=false])),
+.da-settings-form [type=reset]:is(:hover, :active, :focus),
+.da-settings-form [type=button]:is([aria-current]:not([aria-current=false])),
+.da-settings-form [type=button]:is(:hover, :active, :focus),
+.da-settings-form [type=file]::file-selector-button:is([aria-current]:not([aria-current=false])),
+.da-settings-form [type=file]::file-selector-button:is(:hover, :active, :focus),
+.da-settings-form [role=button]:is([aria-current]:not([aria-current=false])),
+.da-settings-form [role=button]:is(:hover, :active, :focus) {
+  --da-background-color: var(--da-primary-hover-background);
+  --da-border-color: var(--da-primary-hover-border);
+  --da-box-shadow: var(--da-button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0));
+  --da-color: var(--da-primary-inverse);
+}
+.da-settings-form button:focus, .da-settings-form button:is([aria-current]:not([aria-current=false])):focus,
+.da-settings-form [type=submit]:focus,
+.da-settings-form [type=submit]:is([aria-current]:not([aria-current=false])):focus,
+.da-settings-form [type=reset]:focus,
+.da-settings-form [type=reset]:is([aria-current]:not([aria-current=false])):focus,
+.da-settings-form [type=button]:focus,
+.da-settings-form [type=button]:is([aria-current]:not([aria-current=false])):focus,
+.da-settings-form [type=file]::file-selector-button:focus,
+.da-settings-form [type=file]::file-selector-button:is([aria-current]:not([aria-current=false])):focus,
+.da-settings-form [role=button]:focus,
+.da-settings-form [role=button]:is([aria-current]:not([aria-current=false])):focus {
+  --da-box-shadow: var(--da-button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0)), 0 0 0 var(--da-outline-width) var(--da-primary-focus);
+}
+
+.da-settings-form [type=submit],
+.da-settings-form [type=reset],
+.da-settings-form [type=button] {
+  margin-bottom: var(--da-spacing);
+}
+
+.da-settings-form :is(button, [type=submit], [type=button], [role=button]).secondary,
+.da-settings-form [type=reset],
+.da-settings-form [type=file]::file-selector-button {
+  --da-background-color: var(--da-secondary-background);
+  --da-border-color: var(--da-secondary-border);
+  --da-color: var(--da-secondary-inverse);
+  cursor: pointer;
+}
+.da-settings-form :is(button, [type=submit], [type=button], [role=button]).secondary:is([aria-current]:not([aria-current=false]), :hover, :active, :focus),
+.da-settings-form [type=reset]:is([aria-current]:not([aria-current=false]), :hover, :active, :focus),
+.da-settings-form [type=file]::file-selector-button:is([aria-current]:not([aria-current=false]), :hover, :active, :focus) {
+  --da-background-color: var(--da-secondary-hover-background);
+  --da-border-color: var(--da-secondary-hover-border);
+  --da-color: var(--da-secondary-inverse);
+}
+.da-settings-form :is(button, [type=submit], [type=button], [role=button]).secondary:focus, .da-settings-form :is(button, [type=submit], [type=button], [role=button]).secondary:is([aria-current]:not([aria-current=false])):focus,
+.da-settings-form [type=reset]:focus,
+.da-settings-form [type=reset]:is([aria-current]:not([aria-current=false])):focus,
+.da-settings-form [type=file]::file-selector-button:focus,
+.da-settings-form [type=file]::file-selector-button:is([aria-current]:not([aria-current=false])):focus {
+  --da-box-shadow: var(--da-button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0)), 0 0 0 var(--da-outline-width) var(--da-secondary-focus);
+}
+
+.da-settings-form :is(button, [type=submit], [type=button], [role=button]).contrast {
+  --da-background-color: var(--da-contrast-background);
+  --da-border-color: var(--da-contrast-border);
+  --da-color: var(--da-contrast-inverse);
+}
+.da-settings-form :is(button, [type=submit], [type=button], [role=button]).contrast:is([aria-current]:not([aria-current=false]), :hover, :active, :focus) {
+  --da-background-color: var(--da-contrast-hover-background);
+  --da-border-color: var(--da-contrast-hover-border);
+  --da-color: var(--da-contrast-inverse);
+}
+.da-settings-form :is(button, [type=submit], [type=button], [role=button]).contrast:focus, .da-settings-form :is(button, [type=submit], [type=button], [role=button]).contrast:is([aria-current]:not([aria-current=false])):focus {
+  --da-box-shadow: var(--da-button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0)), 0 0 0 var(--da-outline-width) var(--da-contrast-focus);
+}
+
+.da-settings-form :is(button, [type=submit], [type=button], [role=button]).outline,
+[type=reset].outline {
+  --da-background-color: transparent;
+  --da-color: var(--da-primary);
+  --da-border-color: var(--da-primary);
+}
+.da-settings-form :is(button, [type=submit], [type=button], [role=button]).outline:is([aria-current]:not([aria-current=false]), :hover, :active, :focus),
+[type=reset].outline:is([aria-current]:not([aria-current=false]), :hover, :active, :focus) {
+  --da-background-color: transparent;
+  --da-color: var(--da-primary-hover);
+  --da-border-color: var(--da-primary-hover);
+}
+
+.da-settings-form :is(button, [type=submit], [type=button], [role=button]).outline.secondary,
+[type=reset].outline {
+  --da-color: var(--da-secondary);
+  --da-border-color: var(--da-secondary);
+}
+.da-settings-form :is(button, [type=submit], [type=button], [role=button]).outline.secondary:is([aria-current]:not([aria-current=false]), :hover, :active, :focus),
+[type=reset].outline:is([aria-current]:not([aria-current=false]), :hover, :active, :focus) {
+  --da-color: var(--da-secondary-hover);
+  --da-border-color: var(--da-secondary-hover);
+}
+
+.da-settings-form :is(button, [type=submit], [type=button], [role=button]).outline.contrast {
+  --da-color: var(--da-contrast);
+  --da-border-color: var(--da-contrast);
+}
+.da-settings-form :is(button, [type=submit], [type=button], [role=button]).outline.contrast:is([aria-current]:not([aria-current=false]), :hover, :active, :focus) {
+  --da-color: var(--da-contrast-hover);
+  --da-border-color: var(--da-contrast-hover);
+}
+
+.da-settings-form :where(button, [type=submit], [type=reset], [type=button], [role=button])[disabled],
+.da-settings-form :where(fieldset[disabled]) :is(button, [type=submit], [type=button], [type=reset], [role=button]) {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/**
+ * Code
+ */
+.da-settings-form pre,
+.da-settings-form code,
+.da-settings-form kbd,
+.da-settings-form samp {
+  font-size: 0.875em;
+  font-family: var(--da-font-family);
+}
+
+.da-settings-form pre code,
+.da-settings-form pre samp {
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.da-settings-form pre {
+  -ms-overflow-style: scrollbar;
+  overflow: auto;
+}
+
+.da-settings-form pre,
+.da-settings-form code,
+.da-settings-form kbd,
+.da-settings-form samp {
+  border-radius: var(--da-border-radius);
+  background: var(--da-code-background-color);
+  color: var(--da-code-color);
+  font-weight: var(--da-font-weight);
+  line-height: initial;
+}
+
+.da-settings-form code,
+.da-settings-form kbd,
+.da-settings-form samp {
+  display: inline-block;
+  padding: 0.375rem;
+}
+
+.da-settings-form pre {
+  display: block;
+  margin-bottom: var(--da-spacing);
+  overflow-x: auto;
+}
+.da-settings-form pre > code,
+.da-settings-form pre > samp {
+  display: block;
+  padding: var(--da-spacing);
+  background: none;
+  line-height: var(--da-line-height);
+}
+
+.da-settings-form kbd {
+  background-color: var(--da-code-kbd-background-color);
+  color: var(--da-code-kbd-color);
+  vertical-align: baseline;
+}
+
+/**
+ * Misc
+ */
+.da-settings-form hr {
+  height: 0;
+  margin: var(--da-typography-spacing-vertical) 0;
+  border: 0;
+  border-top: 1px solid var(--da-muted-border-color);
+  color: inherit;
+}
+
+.da-settings-form [hidden],
+.da-settings-form template {
+  display: none !important;
+}
+
+.da-settings-form canvas {
+  display: inline-block;
+}
+
+/**
+ * Basics form elements
+ */
+.da-settings-form input,
+.da-settings-form optgroup,
+.da-settings-form select,
+.da-settings-form textarea {
+  margin: 0;
+  font-size: 1rem;
+  line-height: var(--da-line-height);
+  font-family: inherit;
+  letter-spacing: inherit;
+}
+
+.da-settings-form input {
+  overflow: visible;
+}
+
+.da-settings-form select {
+  text-transform: none;
+}
+
+.da-settings-form legend {
+  max-width: 100%;
+  padding: 0;
+  color: inherit;
+  white-space: normal;
+}
+
+.da-settings-form textarea {
+  overflow: auto;
+}
+
+.da-settings-form [type=checkbox],
+.da-settings-form [type=radio] {
+  padding: 0;
+}
+
+.da-settings-form ::-webkit-inner-spin-button,
+.da-settings-form ::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.da-settings-form [type=search] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+.da-settings-form [type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.da-settings-form ::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+.da-settings-form ::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+
+.da-settings-form :-moz-focusring {
+  outline: none;
+}
+
+.da-settings-form :-moz-ui-invalid {
+  box-shadow: none;
+}
+
+.da-settings-form ::-ms-expand {
+  display: none;
+}
+
+.da-settings-form [type=file],
+.da-settings-form [type=range] {
+  padding: 0;
+  border-width: 0;
+}
+
+.da-settings-form input:not([type=checkbox], [type=radio], [type=range]) {
+  height: calc(1rem * var(--da-line-height) + var(--da-form-element-spacing-vertical) * 2 + var(--da-border-width) * 2);
+}
+
+.da-settings-form fieldset {
+  width: 100%;
+  margin: 0;
+  margin-bottom: var(--da-spacing);
+  padding: 0;
+  border: 0;
+}
+
+.da-settings-form label,
+.da-settings-form fieldset legend {
+  display: block;
+  margin-bottom: calc(var(--da-spacing) * 0.375);
+  color: var(--da-color);
+  font-weight: var(--da-form-label-font-weight, var(--da-font-weight));
+}
+
+.da-settings-form fieldset legend {
+  margin-bottom: calc(var(--da-spacing) * 0.5);
+}
+
+.da-settings-form input:not([type=checkbox], [type=radio]),
+.da-settings-form button[type=submit],
+.da-settings-form select,
+.da-settings-form textarea {
+  width: 100%;
+}
+
+.da-settings-form input:not([type=checkbox], [type=radio], [type=range], [type=file]),
+.da-settings-form select,
+.da-settings-form textarea {
+  appearance: none;
+  padding: var(--da-form-element-spacing-vertical) var(--da-form-element-spacing-horizontal);
+}
+
+.da-settings-form input,
+.da-settings-form select,
+.da-settings-form textarea {
+  --da-background-color: var(--da-form-element-background-color);
+  --da-border-color: var(--da-form-element-border-color);
+  --da-color: var(--da-form-element-color);
+  --da-box-shadow: none;
+  border: var(--da-border-width) solid var(--da-border-color);
+  border-radius: var(--da-border-radius);
+  outline: none;
+  background-color: var(--da-background-color);
+  box-shadow: var(--da-box-shadow);
+  color: var(--da-color);
+  font-weight: var(--da-font-weight);
+  transition: background-color var(--da-transition), border-color var(--da-transition), color var(--da-transition), box-shadow var(--da-transition);
+}
+
+.da-settings-form input:not([type=submit],
+[type=button],
+[type=reset],
+[type=checkbox],
+[type=radio],
+[readonly]):is(:active, :focus),
+.da-settings-form :where(select, textarea):not([readonly]):is(:active, :focus) {
+  --da-background-color: var(--da-form-element-active-background-color);
+}
+
+.da-settings-form input:not([type=submit], [type=button], [type=reset], [role=switch], [readonly]):is(:active, :focus),
+.da-settings-form :where(select, textarea):not([readonly]):is(:active, :focus) {
+  --da-border-color: var(--da-form-element-active-border-color);
+}
+
+.da-settings-form input:not([type=submit],
+[type=button],
+[type=reset],
+[type=range],
+[type=file],
+[readonly]):focus,
+.da-settings-form :where(select, textarea):not([readonly]):focus {
+  --da-box-shadow: 0 0 0 var(--da-outline-width) var(--da-form-element-focus-color);
+}
+
+.da-settings-form input:not([type=submit], [type=button], [type=reset])[disabled],
+.da-settings-form select[disabled],
+.da-settings-form textarea[disabled],
+.da-settings-form label[aria-disabled=true],
+.da-settings-form :where(fieldset[disabled]) :is(input:not([type=submit], [type=button], [type=reset]), select, textarea) {
+  opacity: var(--da-form-element-disabled-opacity);
+  pointer-events: none;
+}
+
+.da-settings-form label[aria-disabled=true] input[disabled] {
+  opacity: 1;
+}
+
+.da-settings-form :where(input, select, textarea):not([type=checkbox],
+[type=radio],
+[type=date],
+[type=datetime-local],
+[type=month],
+[type=time],
+[type=week],
+[type=range])[aria-invalid] {
+  padding-right: calc(var(--da-form-element-spacing-horizontal) + 1.5rem) !important;
+  padding-left: var(--da-form-element-spacing-horizontal);
+  padding-inline-start: var(--da-form-element-spacing-horizontal) !important;
+  padding-inline-end: calc(var(--da-form-element-spacing-horizontal) + 1.5rem) !important;
+  background-position: center right 0.75rem;
+  background-size: 1rem auto;
+  background-repeat: no-repeat;
+}
+.da-settings-form :where(input, select, textarea):not([type=checkbox],
+[type=radio],
+[type=date],
+[type=datetime-local],
+[type=month],
+[type=time],
+[type=week],
+[type=range])[aria-invalid=false]:not(select) {
+  background-image: var(--da-icon-valid);
+}
+.da-settings-form :where(input, select, textarea):not([type=checkbox],
+[type=radio],
+[type=date],
+[type=datetime-local],
+[type=month],
+[type=time],
+[type=week],
+[type=range])[aria-invalid=true]:not(select) {
+  background-image: var(--da-icon-invalid);
+}
+.da-settings-form :where(input, select, textarea)[aria-invalid=false] {
+  --da-border-color: var(--da-form-element-valid-border-color);
+}
+.da-settings-form :where(input, select, textarea)[aria-invalid=false]:is(:active, :focus) {
+  --da-border-color: var(--da-form-element-valid-active-border-color) !important;
+}
+.da-settings-form :where(input, select, textarea)[aria-invalid=false]:is(:active, :focus):not([type=checkbox], [type=radio]) {
+  --da-box-shadow: 0 0 0 var(--da-outline-width) var(--da-form-element-valid-focus-color) !important;
+}
+.da-settings-form :where(input, select, textarea)[aria-invalid=true] {
+  --da-border-color: var(--da-form-element-invalid-border-color);
+}
+.da-settings-form :where(input, select, textarea)[aria-invalid=true]:is(:active, :focus) {
+  --da-border-color: var(--da-form-element-invalid-active-border-color) !important;
+}
+.da-settings-form :where(input, select, textarea)[aria-invalid=true]:is(:active, :focus):not([type=checkbox], [type=radio]) {
+  --da-box-shadow: 0 0 0 var(--da-outline-width) var(--da-form-element-invalid-focus-color) !important;
+}
+
+[dir=rtl] .da-settings-form :where(input, select, textarea):not([type=checkbox], [type=radio]):is([aria-invalid], [aria-invalid=true], [aria-invalid=false]) {
+  background-position: center left 0.75rem;
+}
+
+.da-settings-form input::placeholder,
+.da-settings-form input::-webkit-input-placeholder,
+.da-settings-form textarea::placeholder,
+.da-settings-form textarea::-webkit-input-placeholder,
+.da-settings-form select:invalid {
+  color: var(--da-form-element-placeholder-color);
+  opacity: 1;
+}
+
+.da-settings-form input:not([type=checkbox], [type=radio]),
+.da-settings-form select,
+.da-settings-form textarea {
+  margin-bottom: var(--da-spacing);
+}
+
+.da-settings-form select::-ms-expand {
+  border: 0;
+  background-color: transparent;
+}
+.da-settings-form select:not([multiple], [size]) {
+  padding-right: calc(var(--da-form-element-spacing-horizontal) + 1.5rem);
+  padding-left: var(--da-form-element-spacing-horizontal);
+  padding-inline-start: var(--da-form-element-spacing-horizontal);
+  padding-inline-end: calc(var(--da-form-element-spacing-horizontal) + 1.5rem);
+  background-image: var(--da-icon-chevron);
+  background-position: center right 0.75rem;
+  background-size: 1rem auto;
+  background-repeat: no-repeat;
+}
+.da-settings-form select[multiple] option:checked {
+  background: var(--da-form-element-selected-background-color);
+  color: var(--da-form-element-color);
+}
+
+[dir=rtl] .da-settings-form select:not([multiple], [size]) {
+  background-position: center left 0.75rem;
+}
+
+.da-settings-form textarea {
+  display: block;
+  resize: vertical;
+}
+.da-settings-form textarea[aria-invalid] {
+  --da-icon-height: calc(1rem * var(--da-line-height) + var(--da-form-element-spacing-vertical) * 2 + var(--da-border-width) * 2);
+  background-position: top right 0.75rem !important;
+  background-size: 1rem var(--da-icon-height) !important;
+}
+
+.da-settings-form :where(input, select, textarea, fieldset) + small {
+  display: block;
+  width: 100%;
+  margin-top: calc(var(--da-spacing) * -0.75);
+  margin-bottom: var(--da-spacing);
+  color: var(--da-muted-color);
+}
+.da-settings-form :where(input, select, textarea, fieldset)[aria-invalid=false] + small {
+  color: var(--da-ins-color);
+}
+.da-settings-form :where(input, select, textarea, fieldset)[aria-invalid=true] + small {
+  color: var(--da-del-color);
+}
+
+.da-settings-form label > :where(input, select, textarea) {
+  margin-top: calc(var(--da-spacing) * 0.25);
+}
+
+/**
+ * Checkboxes, Radios and Switches
+ */
+.da-settings-form label:has([type=checkbox], [type=radio]) {
+  width: fit-content;
+  cursor: pointer;
+}
+
+.da-settings-form [type=checkbox],
+.da-settings-form [type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 1.25em;
+  height: 1.25em;
+  margin-top: -0.125em;
+  margin-inline-end: 0.5em;
+  border-width: var(--da-border-width);
+  vertical-align: middle;
+  cursor: pointer;
+}
+.da-settings-form [type=checkbox]::-ms-check,
+.da-settings-form [type=radio]::-ms-check {
+  display: none;
+}
+.da-settings-form [type=checkbox]:checked, .da-settings-form [type=checkbox]:checked:active, .da-settings-form [type=checkbox]:checked:focus,
+.da-settings-form [type=radio]:checked,
+.da-settings-form [type=radio]:checked:active,
+.da-settings-form [type=radio]:checked:focus {
+  --da-background-color: var(--da-primary-background);
+  --da-border-color: var(--da-primary-border);
+  background-image: var(--da-icon-checkbox);
+  background-position: center;
+  background-size: 0.75em auto;
+  background-repeat: no-repeat;
+}
+.da-settings-form [type=checkbox] ~ label,
+.da-settings-form [type=radio] ~ label {
+  display: inline-block;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+.da-settings-form [type=checkbox] ~ label:not(:last-of-type),
+.da-settings-form [type=radio] ~ label:not(:last-of-type) {
+  margin-inline-end: 1em;
+}
+
+.da-settings-form [type=checkbox]:indeterminate {
+  --da-background-color: var(--da-primary-background);
+  --da-border-color: var(--da-primary-border);
+  background-image: var(--da-icon-minus);
+  background-position: center;
+  background-size: 0.75em auto;
+  background-repeat: no-repeat;
+}
+
+.da-settings-form [type=radio] {
+  border-radius: 50%;
+}
+.da-settings-form [type=radio]:checked, .da-settings-form [type=radio]:checked:active, .da-settings-form [type=radio]:checked:focus {
+  --da-background-color: var(--da-primary-inverse);
+  border-width: 0.35em;
+  background-image: none;
+}
+
+.da-settings-form [type=checkbox][role=switch] {
+  --da-background-color: var(--da-switch-background-color);
+  --da-color: var(--da-switch-color);
+  width: 2.25em;
+  height: 1.25em;
+  border: var(--da-border-width) solid var(--da-border-color);
+  border-radius: 1.25em;
+  background-color: var(--da-background-color);
+  line-height: 1.25em;
+}
+.da-settings-form [type=checkbox][role=switch]:not([aria-invalid]) {
+  --da-border-color: var(--da-switch-background-color);
+}
+.da-settings-form [type=checkbox][role=switch]:before {
+  display: block;
+  aspect-ratio: 1;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--da-color);
+  box-shadow: var(--da-switch-thumb-box-shadow);
+  content: "";
+  transition: margin 0.1s ease-in-out;
+}
+.da-settings-form [type=checkbox][role=switch]:focus {
+  --da-background-color: var(--da-switch-background-color);
+  --da-border-color: var(--da-switch-background-color);
+}
+.da-settings-form [type=checkbox][role=switch]:checked {
+  --da-background-color: var(--da-switch-checked-background-color);
+  --da-border-color: var(--da-switch-checked-background-color);
+  background-image: none;
+}
+.da-settings-form [type=checkbox][role=switch]:checked::before {
+  margin-inline-start: calc(2.25em - 1.25em);
+}
+.da-settings-form [type=checkbox][role=switch][disabled] {
+  --da-background-color: var(--da-border-color);
+}
+
+.da-settings-form [type=checkbox][aria-invalid=false]:checked, .da-settings-form [type=checkbox][aria-invalid=false]:checked:active, .da-settings-form [type=checkbox][aria-invalid=false]:checked:focus,
+.da-settings-form [type=checkbox][role=switch][aria-invalid=false]:checked,
+.da-settings-form [type=checkbox][role=switch][aria-invalid=false]:checked:active,
+.da-settings-form [type=checkbox][role=switch][aria-invalid=false]:checked:focus {
+  --da-background-color: var(--da-form-element-valid-border-color);
+}
+.da-settings-form [type=checkbox]:checked[aria-invalid=true], .da-settings-form [type=checkbox]:checked:active[aria-invalid=true], .da-settings-form [type=checkbox]:checked:focus[aria-invalid=true],
+.da-settings-form [type=checkbox][role=switch]:checked[aria-invalid=true],
+.da-settings-form [type=checkbox][role=switch]:checked:active[aria-invalid=true],
+.da-settings-form [type=checkbox][role=switch]:checked:focus[aria-invalid=true] {
+  --da-background-color: var(--da-form-element-invalid-border-color);
+}
+
+.da-settings-form [type=checkbox][aria-invalid=false]:checked, .da-settings-form [type=checkbox][aria-invalid=false]:checked:active, .da-settings-form [type=checkbox][aria-invalid=false]:checked:focus,
+.da-settings-form [type=radio][aria-invalid=false]:checked,
+.da-settings-form [type=radio][aria-invalid=false]:checked:active,
+.da-settings-form [type=radio][aria-invalid=false]:checked:focus,
+.da-settings-form [type=checkbox][role=switch][aria-invalid=false]:checked,
+.da-settings-form [type=checkbox][role=switch][aria-invalid=false]:checked:active,
+.da-settings-form [type=checkbox][role=switch][aria-invalid=false]:checked:focus {
+  --da-border-color: var(--da-form-element-valid-border-color);
+}
+.da-settings-form [type=checkbox]:checked[aria-invalid=true], .da-settings-form [type=checkbox]:checked:active[aria-invalid=true], .da-settings-form [type=checkbox]:checked:focus[aria-invalid=true],
+.da-settings-form [type=radio]:checked[aria-invalid=true],
+.da-settings-form [type=radio]:checked:active[aria-invalid=true],
+.da-settings-form [type=radio]:checked:focus[aria-invalid=true],
+.da-settings-form [type=checkbox][role=switch]:checked[aria-invalid=true],
+.da-settings-form [type=checkbox][role=switch]:checked:active[aria-invalid=true],
+.da-settings-form [type=checkbox][role=switch]:checked:focus[aria-invalid=true] {
+  --da-border-color: var(--da-form-element-invalid-border-color);
+}
+
+/**
+ * Input type color
+ */
+.da-settings-form [type=color]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+.da-settings-form [type=color]::-moz-focus-inner {
+  padding: 0;
+}
+.da-settings-form [type=color]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--da-border-radius) * 0.5);
+}
+.da-settings-form [type=color]::-moz-color-swatch {
+  border: 0;
+  border-radius: calc(var(--da-border-radius) * 0.5);
+}
+
+/**
+ * Input type datetime
+ */
+.da-settings-form input:not([type=checkbox], [type=radio], [type=range], [type=file]):is([type=date], [type=datetime-local], [type=month], [type=time], [type=week]) {
+  --da-icon-position: 0.75rem;
+  --da-icon-width: 1rem;
+  padding-right: calc(var(--da-icon-width) + var(--da-icon-position));
+  background-image: var(--da-icon-date);
+  background-position: center right var(--da-icon-position);
+  background-size: var(--da-icon-width) auto;
+  background-repeat: no-repeat;
+}
+.da-settings-form input:not([type=checkbox], [type=radio], [type=range], [type=file])[type=time] {
+  background-image: var(--da-icon-time);
+}
+
+.da-settings-form [type=date]::-webkit-calendar-picker-indicator,
+.da-settings-form [type=datetime-local]::-webkit-calendar-picker-indicator,
+.da-settings-form [type=month]::-webkit-calendar-picker-indicator,
+.da-settings-form [type=time]::-webkit-calendar-picker-indicator,
+.da-settings-form [type=week]::-webkit-calendar-picker-indicator {
+  width: var(--da-icon-width);
+  margin-right: calc(var(--da-icon-width) * -1);
+  margin-left: var(--da-icon-position);
+  opacity: 0;
+}
+
+@-moz-document url-prefix() {
+  .da-settings-form [type=date],
+  .da-settings-form [type=datetime-local],
+  .da-settings-form [type=month],
+  .da-settings-form [type=time],
+  .da-settings-form [type=week] {
+    padding-right: var(--da-form-element-spacing-horizontal) !important;
+    background-image: none !important;
+  }
+}
+[dir=rtl] .da-settings-form :is([type=date], [type=datetime-local], [type=month], [type=time], [type=week]) {
+  text-align: right;
+}
+
+/**
+ * Input type file
+ */
+.da-settings-form [type=file] {
+  --da-color: var(--da-muted-color);
+  margin-left: calc(var(--da-outline-width) * -1);
+  padding: calc(var(--da-form-element-spacing-vertical) * 0.5) 0;
+  padding-left: var(--da-outline-width);
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+.da-settings-form [type=file]::file-selector-button {
+  margin-right: calc(var(--da-spacing) / 2);
+  padding: calc(var(--da-form-element-spacing-vertical) * 0.5) var(--da-form-element-spacing-horizontal);
+}
+.da-settings-form [type=file]:is(:hover, :active, :focus)::file-selector-button {
+  --da-background-color: var(--da-secondary-hover-background);
+  --da-border-color: var(--da-secondary-hover-border);
+}
+.da-settings-form [type=file]:focus::file-selector-button {
+  --da-box-shadow: var(--da-button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0)), 0 0 0 var(--da-outline-width) var(--da-secondary-focus);
+}
+
+/**
+ * Input type range
+ */
+.da-settings-form [type=range] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 1.25rem;
+  background: none;
+}
+.da-settings-form [type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.375rem;
+  border-radius: var(--da-border-radius);
+  background-color: var(--da-range-border-color);
+  transition: background-color var(--da-transition), box-shadow var(--da-transition);
+}
+.da-settings-form [type=range]::-moz-range-track {
+  width: 100%;
+  height: 0.375rem;
+  border-radius: var(--da-border-radius);
+  background-color: var(--da-range-border-color);
+  transition: background-color var(--da-transition), box-shadow var(--da-transition);
+}
+.da-settings-form [type=range]::-ms-track {
+  width: 100%;
+  height: 0.375rem;
+  border-radius: var(--da-border-radius);
+  background-color: var(--da-range-border-color);
+  transition: background-color var(--da-transition), box-shadow var(--da-transition);
+}
+.da-settings-form [type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: -0.4375rem;
+  border: 2px solid var(--da-range-thumb-border-color);
+  border-radius: 50%;
+  background-color: var(--da-range-thumb-color);
+  cursor: pointer;
+  transition: background-color var(--da-transition), transform var(--da-transition);
+}
+.da-settings-form [type=range]::-moz-range-thumb {
+  -webkit-appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: -0.4375rem;
+  border: 2px solid var(--da-range-thumb-border-color);
+  border-radius: 50%;
+  background-color: var(--da-range-thumb-color);
+  cursor: pointer;
+  transition: background-color var(--da-transition), transform var(--da-transition);
+}
+.da-settings-form [type=range]::-ms-thumb {
+  -webkit-appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: -0.4375rem;
+  border: 2px solid var(--da-range-thumb-border-color);
+  border-radius: 50%;
+  background-color: var(--da-range-thumb-color);
+  cursor: pointer;
+  transition: background-color var(--da-transition), transform var(--da-transition);
+}
+.da-settings-form [type=range]:active, .da-settings-form [type=range]:focus-within {
+  --da-range-border-color: var(--da-range-active-border-color);
+  --da-range-thumb-color: var(--da-range-thumb-active-color);
+}
+.da-settings-form [type=range]:active::-webkit-slider-thumb {
+  transform: scale(1.25);
+}
+.da-settings-form [type=range]:active::-moz-range-thumb {
+  transform: scale(1.25);
+}
+.da-settings-form [type=range]:active::-ms-thumb {
+  transform: scale(1.25);
+}
+
+/**
+ * Input type search
+ */
+.da-settings-form input:not([type=checkbox], [type=radio], [type=range], [type=file])[type=search] {
+  padding-inline-start: calc(var(--da-form-element-spacing-horizontal) + 1.75rem);
+  background-image: var(--da-icon-search);
+  background-position: center left calc(var(--da-form-element-spacing-horizontal) + 0.125rem);
+  background-size: 1rem auto;
+  background-repeat: no-repeat;
+}
+.da-settings-form input:not([type=checkbox], [type=radio], [type=range], [type=file])[type=search][aria-invalid] {
+  padding-inline-start: calc(var(--da-form-element-spacing-horizontal) + 1.75rem) !important;
+  background-position: center left 1.125rem, center right 0.75rem;
+}
+.da-settings-form input:not([type=checkbox], [type=radio], [type=range], [type=file])[type=search][aria-invalid=false] {
+  background-image: var(--da-icon-search), var(--da-icon-valid);
+}
+.da-settings-form input:not([type=checkbox], [type=radio], [type=range], [type=file])[type=search][aria-invalid=true] {
+  background-image: var(--da-icon-search), var(--da-icon-invalid);
+}
+
+[dir=rtl] .da-settings-form :where(input):not([type=checkbox], [type=radio], [type=range], [type=file])[type=search] {
+  background-position: center right 1.125rem;
+}
+[dir=rtl] .da-settings-form :where(input):not([type=checkbox], [type=radio], [type=range], [type=file])[type=search][aria-invalid] {
+  background-position: center right 1.125rem, center left 0.75rem;
+}
+
+/**
+ * Group ([role="group"], [role="search"])
+ */
+.da-settings-form [role=search],
+.da-settings-form [role=group] {
+  display: inline-flex;
+  position: relative;
+  width: 100%;
+  margin-bottom: var(--da-spacing);
+  border-radius: var(--da-border-radius);
+  box-shadow: var(--da-group-box-shadow, 0 0 0 rgba(0, 0, 0, 0));
+  vertical-align: middle;
+  transition: box-shadow var(--da-transition);
+}
+.da-settings-form [role=search] > *,
+.da-settings-form [role=search] input:not([type=checkbox], [type=radio]),
+.da-settings-form [role=search] select,
+.da-settings-form [role=group] > *,
+.da-settings-form [role=group] input:not([type=checkbox], [type=radio]),
+.da-settings-form [role=group] select {
+  position: relative;
+  flex: 1 1 auto;
+  margin-bottom: 0;
+}
+.da-settings-form [role=search] > *:not(:first-child),
+.da-settings-form [role=search] input:not([type=checkbox], [type=radio]):not(:first-child),
+.da-settings-form [role=search] select:not(:first-child),
+.da-settings-form [role=group] > *:not(:first-child),
+.da-settings-form [role=group] input:not([type=checkbox], [type=radio]):not(:first-child),
+.da-settings-form [role=group] select:not(:first-child) {
+  margin-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.da-settings-form [role=search] > *:not(:last-child),
+.da-settings-form [role=search] input:not([type=checkbox], [type=radio]):not(:last-child),
+.da-settings-form [role=search] select:not(:last-child),
+.da-settings-form [role=group] > *:not(:last-child),
+.da-settings-form [role=group] input:not([type=checkbox], [type=radio]):not(:last-child),
+.da-settings-form [role=group] select:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.da-settings-form [role=search] > *:focus,
+.da-settings-form [role=search] input:not([type=checkbox], [type=radio]):focus,
+.da-settings-form [role=search] select:focus,
+.da-settings-form [role=group] > *:focus,
+.da-settings-form [role=group] input:not([type=checkbox], [type=radio]):focus,
+.da-settings-form [role=group] select:focus {
+  z-index: 2;
+}
+.da-settings-form [role=search] button:not(:first-child),
+.da-settings-form [role=search] [type=submit]:not(:first-child),
+.da-settings-form [role=search] [type=reset]:not(:first-child),
+.da-settings-form [role=search] [type=button]:not(:first-child),
+.da-settings-form [role=search] [role=button]:not(:first-child),
+.da-settings-form [role=search] input:not([type=checkbox], [type=radio]):not(:first-child),
+.da-settings-form [role=search] select:not(:first-child),
+.da-settings-form [role=group] button:not(:first-child),
+.da-settings-form [role=group] [type=submit]:not(:first-child),
+.da-settings-form [role=group] [type=reset]:not(:first-child),
+.da-settings-form [role=group] [type=button]:not(:first-child),
+.da-settings-form [role=group] [role=button]:not(:first-child),
+.da-settings-form [role=group] input:not([type=checkbox], [type=radio]):not(:first-child),
+.da-settings-form [role=group] select:not(:first-child) {
+  margin-left: calc(var(--da-border-width) * -1);
+}
+.da-settings-form [role=search] button,
+.da-settings-form [role=search] [type=submit],
+.da-settings-form [role=search] [type=reset],
+.da-settings-form [role=search] [type=button],
+.da-settings-form [role=search] [role=button],
+.da-settings-form [role=group] button,
+.da-settings-form [role=group] [type=submit],
+.da-settings-form [role=group] [type=reset],
+.da-settings-form [role=group] [type=button],
+.da-settings-form [role=group] [role=button] {
+  width: auto;
+}
+@supports selector(:has(*)) {
+  .da-settings-form [role=search]:has(button:focus, [type=submit]:focus, [type=button]:focus, [role=button]:focus),
+  .da-settings-form [role=group]:has(button:focus, [type=submit]:focus, [type=button]:focus, [role=button]:focus) {
+    --da-group-box-shadow: var(--da-group-box-shadow-focus-with-button);
+  }
+  .da-settings-form [role=search]:has(button:focus, [type=submit]:focus, [type=button]:focus, [role=button]:focus) input:not([type=checkbox], [type=radio]),
+  .da-settings-form [role=search]:has(button:focus, [type=submit]:focus, [type=button]:focus, [role=button]:focus) select,
+  .da-settings-form [role=group]:has(button:focus, [type=submit]:focus, [type=button]:focus, [role=button]:focus) input:not([type=checkbox], [type=radio]),
+  .da-settings-form [role=group]:has(button:focus, [type=submit]:focus, [type=button]:focus, [role=button]:focus) select {
+    border-color: transparent;
+  }
+  .da-settings-form [role=search]:has(input:not([type=submit], [type=button]):focus, select:focus),
+  .da-settings-form [role=group]:has(input:not([type=submit], [type=button]):focus, select:focus) {
+    --da-group-box-shadow: var(--da-group-box-shadow-focus-with-input);
+  }
+  .da-settings-form [role=search]:has(input:not([type=submit], [type=button]):focus, select:focus) button,
+  .da-settings-form [role=search]:has(input:not([type=submit], [type=button]):focus, select:focus) [type=submit],
+  .da-settings-form [role=search]:has(input:not([type=submit], [type=button]):focus, select:focus) [type=button],
+  .da-settings-form [role=search]:has(input:not([type=submit], [type=button]):focus, select:focus) [role=button],
+  .da-settings-form [role=group]:has(input:not([type=submit], [type=button]):focus, select:focus) button,
+  .da-settings-form [role=group]:has(input:not([type=submit], [type=button]):focus, select:focus) [type=submit],
+  .da-settings-form [role=group]:has(input:not([type=submit], [type=button]):focus, select:focus) [type=button],
+  .da-settings-form [role=group]:has(input:not([type=submit], [type=button]):focus, select:focus) [role=button] {
+    --da-button-box-shadow: 0 0 0 var(--da-border-width) var(--da-primary-border);
+    --da-button-hover-box-shadow: 0 0 0 var(--da-border-width) var(--da-primary-hover-border);
+  }
+  .da-settings-form [role=search] button:focus,
+  .da-settings-form [role=search] [type=submit]:focus,
+  .da-settings-form [role=search] [type=reset]:focus,
+  .da-settings-form [role=search] [type=button]:focus,
+  .da-settings-form [role=search] [role=button]:focus,
+  .da-settings-form [role=group] button:focus,
+  .da-settings-form [role=group] [type=submit]:focus,
+  .da-settings-form [role=group] [type=reset]:focus,
+  .da-settings-form [role=group] [type=button]:focus,
+  .da-settings-form [role=group] [role=button]:focus {
+    box-shadow: none;
+  }
+}
+
+.da-settings-form [role=search] > *:first-child {
+  border-top-left-radius: 5rem;
+  border-bottom-left-radius: 5rem;
+}
+.da-settings-form [role=search] > *:last-child {
+  border-top-right-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+}
+
+/**
+ * Loading ([aria-busy=true])
+ */
+.da-settings-form [aria-busy=true]:not(input, select, textarea, html, form) {
+  white-space: nowrap;
+}
+.da-settings-form [aria-busy=true]:not(input, select, textarea, html, form)::before {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-image: var(--da-icon-loading);
+  background-size: 1em auto;
+  background-repeat: no-repeat;
+  content: "";
+  vertical-align: -0.125em;
+}
+.da-settings-form [aria-busy=true]:not(input, select, textarea, html, form):not(:empty)::before {
+  margin-inline-end: calc(var(--da-spacing) * 0.5);
+}
+.da-settings-form [aria-busy=true]:not(input, select, textarea, html, form):empty {
+  text-align: center;
+}
+
+.da-settings-form button[aria-busy=true],
+.da-settings-form [type=submit][aria-busy=true],
+.da-settings-form [type=button][aria-busy=true],
+.da-settings-form [type=reset][aria-busy=true],
+.da-settings-form [role=button][aria-busy=true],
+.da-settings-form a[aria-busy=true] {
+  pointer-events: none;
+}
+
+/**
+ * Accessibility & User interaction
+ */
+.da-settings-form [aria-controls] {
+  cursor: pointer;
+}
+
+.da-settings-form [aria-disabled=true],
+.da-settings-form [disabled] {
+  cursor: not-allowed;
+}
+
+.da-settings-form [aria-hidden=false][hidden] {
+  display: initial;
+}
+
+.da-settings-form [aria-hidden=false][hidden]:not(:focus) {
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+.da-settings-form a,
+.da-settings-form area,
+.da-settings-form button,
+.da-settings-form input,
+.da-settings-form label,
+.da-settings-form select,
+.da-settings-form summary,
+.da-settings-form textarea,
+.da-settings-form [tabindex] {
+  -ms-touch-action: manipulation;
+}
+
+.da-settings-form [dir=rtl] {
+  direction: rtl;
+}
+
+.da-settings-wrapper {
+  --da-theme-color: var(--wp-admin-theme-color, #2271b1);
+  --da-theme-color-rgb: var(--wp-admin-theme-color--rgb, 34, 113, 177);
+  --da-theme-color-darker-10: var(--wp-admin-theme-color-darker-10, #135e96);
+  --da-border-width-focus: var(--wp-admin-border-width-focus, 2px);
+  --da-surface: #fff;
+  --da-surface-muted: #ebebeb;
+  --da-text: #3c434a;
+  --da-text-strong: #070707;
+  --da-text-input: #2c3338;
+  --da-text-muted: #757575;
+  --da-border: #c3c4c7;
+  --da-border-input: #8c8f94;
+  --da-button-bg: #f6f7f7;
+  --da-button-bg-hover: #f0f0f1;
+  --da-button-border: #8c8f94;
+  --da-button-border-hover: #757575;
+  --da-button-text: #2c3338;
+  --da-button-text-hover: #070707;
+  --da-button-focus: var(--da-theme-color);
+  --da-font-family-emoji: inherit;
+  --da-font-family-sans-serif: inherit;
+  --da-font-family-monospace: inherit;
+  --da-font-family: var(--da-font-family-sans-serif);
+  --da-line-height: 1.5;
+  --da-font-weight: 400;
+  --da-font-size: 100%;
+  --da-text-underline-offset: 0.1rem;
+  --da-border-radius: 0.25rem;
+  --da-border-width: 0.0625rem;
+  --da-outline-width: 0.125rem;
+  --da-transition: 0.2s ease-in-out;
+  --da-spacing: 1rem;
+  --da-typography-spacing-vertical: 1rem;
+  --da-block-spacing-vertical: 20px;
+  --da-block-spacing-horizontal: 20px;
+  --da-grid-column-gap: 20px;
+  --da-grid-row-gap: 20px;
+  --da-form-element-spacing-vertical: 0.35rem;
+  --da-form-element-spacing-horizontal: 0.75rem;
+  --da-group-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  --da-group-box-shadow-focus-with-button: 0 0 0 var(--da-outline-width) var(--da-primary-focus);
+  --da-group-box-shadow-focus-with-input: 0 0 0 0.0625rem var(--da-form-element-border-color);
+  --da-modal-overlay-backdrop-filter: blur(0.375rem);
+  --da-nav-element-spacing-vertical: 1rem;
+  --da-nav-element-spacing-horizontal: 0.5rem;
+  --da-nav-link-spacing-vertical: 0.5rem;
+  --da-nav-link-spacing-horizontal: 0.5rem;
+  --da-nav-breadcrumb-divider: ">";
+  --da-primary: var(--da-theme-color);
+  --da-primary-background: var(--da-theme-color);
+  --da-primary-border: var(--da-theme-color);
+  --da-primary-underline: rgba(var(--da-theme-color-rgb), 0.5);
+  --da-primary-hover: var(--da-theme-color-darker-10);
+  --da-primary-hover-background: var(--da-theme-color-darker-10);
+  --da-primary-hover-border: var(--da-theme-color-darker-10);
+  --da-primary-hover-underline: var(--da-theme-color-darker-10);
+  --da-primary-focus: rgba(var(--da-theme-color-rgb), 0.25);
+  --da-primary-inverse: #fff;
+  --da-secondary: var(--da-button-text);
+  --da-secondary-background: var(--da-button-bg);
+  --da-secondary-border: var(--da-button-border);
+  --da-secondary-underline: rgba(var(--da-theme-color-rgb), 0.4);
+  --da-secondary-hover: var(--da-button-text-hover);
+  --da-secondary-hover-background: var(--da-button-bg-hover);
+  --da-secondary-hover-border: var(--da-button-border-hover);
+  --da-secondary-hover-underline: var(--da-button-border-hover);
+  --da-secondary-focus: var(--da-button-focus);
+  --da-secondary-inverse: var(--da-button-text);
+  --da-contrast: var(--da-text-strong);
+  --da-contrast-background: var(--da-text-strong);
+  --da-contrast-border: var(--da-text-strong);
+  --da-contrast-hover: #000;
+  --da-contrast-hover-background: #000;
+  --da-contrast-hover-border: #000;
+  --da-contrast-focus: rgba(var(--da-theme-color-rgb), 0.25);
+  --da-contrast-inverse: #fff;
+  color-scheme: light;
+  --da-background-color: var(--da-surface);
+  --da-color: var(--da-text);
+  --da-muted-color: var(--da-text-muted);
+  --da-muted-border-color: var(--da-border);
+  --da-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+  --da-text-selection-color: rgba(var(--da-theme-color-rgb), 0.25);
+  --da-table-border-color: var(--da-border);
+  --da-table-row-stripped-background-color: var(--da-surface-muted);
+  --da-form-element-background-color: var(--da-surface);
+  --da-form-element-active-background-color: var(--da-surface);
+  --da-form-element-selected-background-color: var(--da-surface-muted);
+  --da-form-element-border-color: var(--da-border-input);
+  --da-form-element-color: var(--da-text-input);
+  --da-form-element-placeholder-color: var(--da-text-muted);
+  --da-form-element-active-border-color: var(--da-theme-color);
+  --da-form-element-focus-color: var(--da-theme-color);
+  --da-switch-background-color: var(--da-border-input);
+  --da-switch-checked-background-color: var(--da-theme-color);
+  --da-switch-color: #fff;
+  --da-outline-width: var(--da-border-width-focus);
+  --da-block-spacing: var(--da-block-spacing-vertical) var(--da-block-spacing-horizontal);
+  --da-form-element-spacing: var(--da-form-element-spacing-vertical) var(--da-form-element-spacing-horizontal);
+  --da-typography-spacing: var(--da-typography-spacing-vertical);
+}
+.da-settings-wrapper .button-secondary,
+.da-settings-wrapper .button.button-secondary {
+  --da-primary: var(--da-secondary);
+  --da-primary-background: var(--da-secondary-background);
+  --da-primary-border: var(--da-secondary-border);
+  --da-primary-hover: var(--da-secondary-hover);
+  --da-primary-hover-background: var(--da-secondary-hover-background);
+  --da-primary-hover-border: var(--da-secondary-hover-border);
+  --da-primary-hover-underline: var(--da-secondary-hover-underline);
+  --da-primary-focus: var(--da-secondary-focus);
+  --da-primary-inverse: var(--da-secondary-inverse);
+}
+.da-settings-wrapper code,
+.da-settings-wrapper kbd,
+.da-settings-wrapper samp {
+  background: #f0f0f1;
+  background: rgba(0, 0, 0, 0.07);
+  color: var(--da-text);
+}
+
+/* Admin settings api */
+.wp-admin #wpcontent {
+  padding: 0;
+}
+.wp-admin #wpbody-content > .notice {
+  display: none;
+}
+.wp-admin .wrap {
+  margin: 0;
+}
+
+.da-settings-wrapper .header-wrapper {
+  padding: 20px 40px;
+  background-color: var(--da-surface);
+  border-bottom: 1px solid var(--da-surface-muted);
+}
+.da-settings-wrapper .content-wrapper {
+  padding: 0 40px;
+}
+.da-settings-wrapper .header-title {
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--da-text-strong);
+}
+.da-settings-wrapper .nav-tab-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 10px 40px 0;
+  gap: 30px;
+  margin: 0 0 20px 0;
+  background: var(--da-surface);
+  border-bottom: 2px solid var(--da-surface-muted);
+}
+.da-settings-wrapper .nav-tab-wrapper .nav-tab {
+  margin: 2px 0 0;
+  border: 0;
+  background: none;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0 0 10px 0;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.da-settings-wrapper .nav-tab-wrapper .nav-tab:hover, .da-settings-wrapper .nav-tab-wrapper .nav-tab:focus {
+  color: var(--wp-admin-theme-color);
+  outline: none;
+  box-shadow: none;
+}
+.da-settings-wrapper .nav-tab-wrapper .nav-tab.nav-tab-active {
+  border-bottom-color: var(--wp-admin-theme-color);
+}
+
+.da-settings form {
+  min-width: 463px;
+  width: auto;
+  flex: 1 1 auto;
+}
+.da-settings input:not([type=checkbox], [type=radio], [type=submit], [type=reset], [type=button]) {
+  width: auto;
+  min-width: 80px;
+  max-width: 100%;
+  font-size: var(--da-font-size);
+  margin-bottom: 0;
+}
+.da-settings input:not([type=checkbox], [type=radio], [type=submit], [type=reset], [type=button]).large-text {
+  width: 100%;
+}
+.da-settings input:not([type=checkbox], [type=radio], [type=submit], [type=reset], [type=button]).regular-text {
+  width: 25rem;
+}
+.da-settings input:not([type=checkbox], [type=radio], [type=submit], [type=reset], [type=button]).small-text {
+  width: 8rem;
+}
+.da-settings select,
+.da-settings textarea {
+  width: 25rem;
+  max-width: 100%;
+  font-size: var(--da-font-size);
+  margin-bottom: 0;
+}
+.da-settings button,
+.da-settings [type=submit].button,
+.da-settings [type=reset],
+.da-settings [type=button].button {
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
+  font-size: var(--da-font-size);
+}
+.da-settings .submit {
+  display: flex;
+  gap: 10px;
+}
+.da-settings .da-sidebar {
+  width: 250px;
+  flex: 0 0 250px;
+  margin-left: 20px;
+}
+.da-settings.has-sidebar {
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 960px) {
+  .da-settings.has-sidebar {
+    flex-direction: column;
+  }
+  .da-settings form {
+    width: 100%;
+  }
+  .da-settings .da-sidebar {
+    width: 100%;
+    flex: 0 0 auto;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+}
+.da-settings p.help,
+.da-settings p.description,
+.da-settings span.description {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--da-text-muted);
+}
+
+.da-range-field {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.da-range-field input[type=range] {
+  appearance: none;
+  color-scheme: light;
+  background: transparent;
+  accent-color: var(--da-theme-color);
+}
+.da-range-field input[type=range]::-webkit-slider-runnable-track {
+  height: 4px;
+  background: #dcdcde;
+  border-radius: 999px;
+}
+.da-range-field input[type=range]::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  margin-top: -6px;
+  border-radius: 50%;
+  background: var(--da-theme-color);
+  border: 1px solid var(--da-theme-color);
+}
+.da-range-field input[type=range]::-moz-range-track {
+  height: 4px;
+  background: #dcdcde;
+  border-radius: 999px;
+}
+.da-range-field input[type=range]::-moz-range-progress {
+  height: 4px;
+  background: var(--da-theme-color);
+  border-radius: 999px;
+}
+.da-range-field input[type=range]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--da-theme-color);
+  border: 1px solid var(--da-theme-color);
+}
+
+.da-buttons-group {
+  display: flex;
+  gap: 10px;
+}
+.da-buttons-group [type=submit].button,
+.da-buttons-group [type=button].button {
+  margin: 0;
+}
+
+.da-field-group label {
+  margin-right: 10px;
+}
+.da-field-group.horizontal label {
+  display: inline-block;
+}
+.da-field-group.vertical label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.da-field input[type=checkbox]:checked:not([role=switch])::before,
+.da-field input[type=radio]:checked::before {
+  display: none;
+}
+.da-field input[type=checkbox][role=switch]:checked::before {
+  width: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.da-field-type-color .da-color-control {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  position: relative;
+  width: fit-content;
+}
+.da-field-type-color .da-color-control button {
+  margin-bottom: 0;
+}
+.da-field-type-color .da-color-input {
+  min-width: 8rem;
+}
+.da-field-type-color .da-color-swatch {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 4px;
+  border: 1px solid var(--da-form-element-border-color);
+  box-shadow: inset 0 0 0 2px var(--da-form-element-background-color);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.da-field-type-color .da-color-swatch:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--da-form-element-background-color), 0 0 0 2px var(--da-form-element-focus-color);
+}
+.da-field-type-color .da-color-popover {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--da-form-element-border-color);
+  background: var(--da-form-element-background-color);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+  display: none;
+  pointer-events: auto;
+}
+.da-field-type-color.is-open .da-color-popover {
+  display: block;
+}
+.da-field-type-color hex-color-picker {
+  width: 200px;
+  height: 200px;
+  pointer-events: auto;
+}
+
+.da-hidden {
+  display: none !important;
+}
+
+@keyframes da-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes da-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes da-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes da-slide-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+.da-anim-in,
+.da-anim-out {
+  animation-duration: var(--da-animation-duration, 250ms);
+  animation-fill-mode: both;
+}
+
+.da-anim-fade.da-anim-in {
+  animation-name: da-fade-in;
+}
+
+.da-anim-fade.da-anim-out {
+  animation-name: da-fade-out;
+}
+
+.da-anim-slide.da-anim-in {
+  animation-name: da-slide-in;
+}
+
+.da-anim-slide.da-anim-out {
+  animation-name: da-slide-out;
+}
+
+/* Disable auto dark scheme detection from pico's theme by forcing light scheme
+   for root when no explicit data-theme is set. This neutralizes the
+   @media (prefers-color-scheme: dark) block generated by the theme module. */
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]),
+  :host(:not([data-theme])) {
+    color-scheme: inherit;
+  }
+}
+/* Image Watermark settings */
+.da-settings-wrapper .nav-tab {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.df-credits {
+  background: #fff;
+  margin: 20px 0;
+  position: relative;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+.df-credits .inner {
+  padding: 0 10px;
+}
+.df-credits h3 {
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+  padding: 8px 12px;
+  border-bottom: 1px solid #dcdcde;
+}
+.df-credits .df-link {
+  padding: 5px 0 10px;
+  margin: 0;
+}
+.df-credits .df-link a {
+  display: block;
+  text-align: center;
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.df-credits .df-link a img {
+  display: block;
+  margin: 0 auto;
+  width: 80px;
+}
+.df-credits hr {
+  border: solid #c3c4c7;
+  border-width: 1px 0 0;
+  clear: both;
+  height: 0;
+}

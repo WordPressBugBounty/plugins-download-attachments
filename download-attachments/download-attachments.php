@@ -2,7 +2,7 @@
 /*
 Plugin Name: Download Attachments
 Description: Download Attachments is a new approach to managing downloads in WordPress. It allows you to easily add and display download links in any post or page.
-Version: 1.3.2
+Version: 1.4.0
 Author: dFactory
 Author URI: http://www.dfactory.co/
 Plugin URI: http://www.dfactory.co/products/download-attachments/
@@ -12,7 +12,7 @@ Text Domain: download-attachments
 Domain Path: /languages
 
 Download Attachments
-Copyright (C) 2013-2024, Digital Factory - info@digitalfactory.pl
+Copyright (C) 2013-2026, Digital Factory - info@digitalfactory.pl
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -30,7 +30,7 @@ if ( ! class_exists( 'Download_Attachments' ) ) {
 	 * Download_Attachments final class.
 	 *
 	 * @class Download_Attachments
-	 * @version 1.3.2
+	 * @version 1.4.0
 	 */
 	class Download_Attachments {
 
@@ -89,7 +89,7 @@ if ( ! class_exists( 'Download_Attachments' ) ) {
 				'library'						=> 'all',
 				'downloads_in_media_library'	=> true
 			],
-			'version'	=> '1.3.2'
+			'version'	=> '1.4.0'
 		];
 
 		/**
@@ -108,7 +108,7 @@ if ( ! class_exists( 'Download_Attachments' ) ) {
 			$this->options = array_merge( $this->defaults['general'], get_option( 'download_attachments_general', $this->defaults['general'] ) );
 
 			// actions
-			add_action( 'after_setup_theme', [ $this, 'load_defaults' ] );
+			add_action( 'init', [ $this, 'load_defaults' ], 20 );
 			add_action( 'admin_head', [ $this, 'button_init' ] );
 			add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scripts' ] );
 			add_action( 'wp_enqueue_scripts', [ $this, 'wp_enqueue_scripts' ] );
@@ -170,15 +170,16 @@ if ( ! class_exists( 'Download_Attachments' ) ) {
 		 */
 		private function includes() {
 			if ( is_admin() ) {
-				include_once( DOWNLOAD_ATTACHMENTS_PATH . 'includes/settings.php' );
-				include_once( DOWNLOAD_ATTACHMENTS_PATH . 'includes/update.php' );
-				include_once( DOWNLOAD_ATTACHMENTS_PATH . 'includes/metabox.php' );
-				include_once( DOWNLOAD_ATTACHMENTS_PATH . 'includes/media.php' );
+				include_once( DOWNLOAD_ATTACHMENTS_PATH . 'includes/class-settings-api.php' );
+				include_once( DOWNLOAD_ATTACHMENTS_PATH . 'includes/class-settings.php' );
+				include_once( DOWNLOAD_ATTACHMENTS_PATH . 'includes/class-update.php' );
+				include_once( DOWNLOAD_ATTACHMENTS_PATH . 'includes/class-metabox.php' );
+				include_once( DOWNLOAD_ATTACHMENTS_PATH . 'includes/class-media.php' );
 			}
 
 			include_once( DOWNLOAD_ATTACHMENTS_PATH . 'includes/functions.php' );
-			include_once( DOWNLOAD_ATTACHMENTS_PATH . 'includes/shortcodes.php' );
-			include_once( DOWNLOAD_ATTACHMENTS_PATH . 'includes/widgets.php' );
+			include_once( DOWNLOAD_ATTACHMENTS_PATH . 'includes/class-shortcodes.php' );
+			include_once( DOWNLOAD_ATTACHMENTS_PATH . 'includes/class-widgets.php' );
 		}
 
 		/**
@@ -456,6 +457,7 @@ if ( ! class_exists( 'Download_Attachments' ) ) {
 			global $post;
 
 			wp_register_style( 'da-admin', DOWNLOAD_ATTACHMENTS_URL . '/css/admin.css', [], $this->defaults['version'] );
+			wp_register_style( 'da-admin-settings', DOWNLOAD_ATTACHMENTS_URL . '/css/admin-settings.css', [], $this->defaults['version'] );
 
 			// settings
 			if ( $page === 'settings_page_download-attachments' ) {
@@ -464,18 +466,19 @@ if ( ! class_exists( 'Download_Attachments' ) ) {
 				// prepare script data
 				$script_data = [
 					'resetToDefaults'			=> esc_html__( 'Are you sure you want to reset these settings to defaults?', 'download-attachments' ),
-					'resetDownloadsToDefaults'	=> esc_html__( 'Are you sure you want to reset number of downloads of all attachments?', 'download-attachments' )
+					'resetDownloadsToDefaults'	=> esc_html__( 'Are you sure you want to reset number of downloads of all attachments?', 'download-attachments' ),
+					'defaultDownloadLink'		=> $this->defaults['general']['download_link']
 				];
 
 				wp_add_inline_script( 'da-admin-settings', 'var daArgsSettings = ' . wp_json_encode( $script_data ) . ";\n", 'before' );
 
 				wp_enqueue_script( 'da-admin-settings' );
-				wp_enqueue_style( 'da-admin' );
+				wp_enqueue_style( 'da-admin-settings' );
 			// metabox
 			} elseif ( in_array( $page, [ 'post.php', 'post-new.php' ], true ) ) {
-				wp_register_script( 'da-admin-datatables', DOWNLOAD_ATTACHMENTS_URL . '/assets/datatables/datatables' . ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.min' : '' ) . '.js', [], '1.13.8' );
+				wp_register_script( 'da-admin-datatables', DOWNLOAD_ATTACHMENTS_URL . '/assets/datatables/datatables' . ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.min' : '' ) . '.js', [ 'jquery' ], '2.3.7' );
 				wp_register_script( 'da-admin-post', DOWNLOAD_ATTACHMENTS_URL . '/js/admin-post.js', [ 'jquery', 'da-admin-datatables' ], $this->defaults['version'] );
-				wp_register_style( 'da-admin-datatables', DOWNLOAD_ATTACHMENTS_URL . '/assets/datatables/datatables' . ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.min' : '' ) . '.css', [], '1.13.8' );
+				wp_register_style( 'da-admin-datatables', DOWNLOAD_ATTACHMENTS_URL . '/assets/datatables/datatables' . ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.min' : '' ) . '.css', [], '2.3.7' );
 
 				$column_types = [];
 
@@ -577,10 +580,12 @@ if ( ! class_exists( 'Download_Attachments' ) ) {
 		 */
 		public function wp_enqueue_scripts() {
 			if ( $this->options['use_css_style'] === true ) {
-				if ( $this->options['display_style'] === 'dynatable' )
-					wp_enqueue_style( 'da-frontend', DOWNLOAD_ATTACHMENTS_URL . '/assets/datatables/datatables' . ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.min' : '' ) . '.css', [], '1.13.8' );
-				else
+				if ( $this->options['display_style'] === 'dynatable' ) {
+					wp_enqueue_style( 'da-frontend-datatables', DOWNLOAD_ATTACHMENTS_URL . '/assets/datatables/datatables' . ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.min' : '' ) . '.css', [], '2.3.7' );
+					wp_enqueue_style( 'da-frontend', DOWNLOAD_ATTACHMENTS_URL . '/css/frontend.css', [ 'da-frontend-datatables' ], $this->defaults['version'] );
+				} else {
 					wp_enqueue_style( 'da-frontend', DOWNLOAD_ATTACHMENTS_URL . '/css/frontend.css', [], $this->defaults['version'] );
+				}
 			}
 		}
 

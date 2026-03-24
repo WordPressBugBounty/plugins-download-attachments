@@ -306,6 +306,17 @@ function da_display_download_attachments( $post_id = 0, $args = [] ) {
 		$args['display_option_none'] = ( $info = trim( $args['display_option_none'] ) ) !== '' ? $info : $defaults['display_option_none'];
 		$args['title'] = apply_filters( 'da_display_attachments_title', trim( $args['title'] ) );
 
+		$style_classes = [
+			'list' => 'style-list',
+			'table' => 'style-table',
+			'dynatable' => 'style-datatables',
+		];
+
+		$container_classes = preg_split( '/\s+/', trim( (string) $args['container_class'] ) );
+		$container_classes = array_filter( array_map( 'sanitize_html_class', is_array( $container_classes ) ? $container_classes : [] ) );
+		$container_classes[] = $style_classes[ $args['style'] ] ?? 'style-' . sanitize_html_class( $args['style'] );
+		$args['container_class'] = implode( ' ', array_unique( $container_classes ) );
+
 		// sanitize html tags
 		$args['container'] = sanitize_key( $args['container'] );
 		$args['title_container'] = sanitize_key( $args['title_container'] );
@@ -332,7 +343,7 @@ function da_display_download_attachments( $post_id = 0, $args = [] ) {
 		$args['count'] = count( $args['attachments'] );
 
 		if ( $args['style'] === 'dynatable' ) {
-			wp_register_script( 'da-frontend-datatables', DOWNLOAD_ATTACHMENTS_URL . '/assets/datatables/datatables' . ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.min' : '' ) . '.js', [], '1.13.8' );
+			wp_register_script( 'da-frontend-datatables', DOWNLOAD_ATTACHMENTS_URL . '/assets/datatables/datatables' . ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.min' : '' ) . '.js', [ 'jquery' ], '2.3.7' );
 			wp_enqueue_script( 'da-frontend', DOWNLOAD_ATTACHMENTS_URL . '/js/frontend.js', [ 'jquery', 'da-frontend-datatables' ], Download_Attachments()->defaults['version'] );
 
 			$columnTypes = [];

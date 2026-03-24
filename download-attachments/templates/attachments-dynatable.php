@@ -41,6 +41,7 @@ extract( $args );
 	<table class="da-attachments-dynatable">
 
 		<thead>
+			<tr>
 
 			<?php if ( $display_index === 1 ) : ?>
 				<th class="attachment-index">#</th>
@@ -67,6 +68,7 @@ extract( $args );
 			<?php if ( $display_count === 1 ) : ?>
 				<th class="attachment-downloads"><?php echo esc_html__( 'Downloads', 'download-attachments' ); ?></th>
 			<?php endif; ?>
+			</tr>
 
 		</thead>
 

@@ -1,31 +1,59 @@
 /* Download attachments */
-.download-attachments .download-title {
-    padding-bottom: 0.5em;
+.download-attachments.style-datatables .dt-container {
+  --dt-header-align-items: flex-start;
+  --dt-header-vertical-align: top;
 }
-
-.download-attachments table {
-	border-collapse: collapse;
-	border-spacing: 0;
-	background-color: transparent;
-	width: 100%; max-width: 100%;
+.download-attachments.style-datatables .dt-container .dt-layout-row {
+  margin: 0;
 }
-
+.download-attachments.style-datatables .dt-container .dt-layout-start > *:not(:last-child),
+.download-attachments.style-datatables .dt-container .dt-layout-end > *:not(:first-child) {
+  margin: 0;
+}
+.download-attachments.style-datatables .dt-container .dt-layout-full > *:only-child {
+  margin-left: 0;
+  margin-right: 0;
+}
+.download-attachments.style-datatables .dt-container .dt-length,
+.download-attachments.style-datatables .dt-container .dt-info {
+  margin-right: auto;
+}
+.download-attachments.style-datatables .dt-container .dt-search,
+.download-attachments.style-datatables .dt-container .dt-paging {
+  margin-left: auto;
+  text-align: right;
+}
+.download-attachments.style-datatables .dt-container .dt-info {
+  padding-top: 0.755em;
+}
+.download-attachments.style-datatables .dt-container .dt-paging {
+  padding-top: 0.25em;
+}
+.download-attachments.style-table table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: transparent;
+  width: 100%;
+  max-width: 100%;
+}
+.download-attachments.style-table table td,
+.download-attachments.style-table table th {
+  padding: 8px;
+  line-height: 1.6;
+  vertical-align: top;
+  text-align: left;
+}
+.download-attachments.style-table table td {
+  border-top: 1px solid #ddd;
+}
+.download-attachments.style-list ul {
+  list-style: none;
+}
 .download-attachments div a,
 .download-attachments ul a,
 .download-attachments table a {
-	text-decoration: none;
-	border: none;
-}
-
-.download-attachments table td,
-.download-attachments table th {
-	padding: 8px;
-	line-height: 1.6;
-	vertical-align: top;
-	border-top: 1px solid #ddd;
-	text-align: left;
-}
-
-.da-attachments-list {
-	list-style: none;
+  text-decoration: none;
+  border: none;
+  word-break: break-all;
+  word-wrap: break-word;
 }
