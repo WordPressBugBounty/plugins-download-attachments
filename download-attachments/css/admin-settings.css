@@ -1726,6 +1726,9 @@ input:not([type=submit],
   width: auto;
   flex: 1 1 auto;
 }
+.da-settings form input[type=radio]:checked {
+  background-color: var(--da-form-element-background-color);
+}
 .da-settings input:not([type=checkbox], [type=radio], [type=submit], [type=reset], [type=button]) {
   width: auto;
   min-width: 80px;

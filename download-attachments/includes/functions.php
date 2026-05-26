@@ -781,6 +781,9 @@ function da_is_attachment_downloadable( $attachment_id = 0 ) {
 		if ( ! $post || $post->post_status !== 'publish' )
 			continue;
 
+		if ( post_password_required( $post ) )
+			continue;
+
 		$post_attachments = get_post_meta( $post_id, '_da_attachments', true );
 		if ( ! is_array( $post_attachments ) || ! isset( $post_attachments[$attachment_id] ) )
 			continue;
